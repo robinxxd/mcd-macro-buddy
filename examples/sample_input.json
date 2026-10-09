@@ -1,0 +1,26 @@
+{
+  "mode": "nutrition",
+  "items": [
+    {"code": "M1001", "name": "麦辣鸡腿堡", "calories": 490, "protein": 21, "fat": 24, "carbs": 44, "sodium": 890, "price": 21.5, "tags": ["burger", "spicy"], "is_combo": false},
+    {"code": "M1002", "name": "板烧鸡腿堡", "calories": 430, "protein": 26, "fat": 17, "carbs": 44, "sodium": 1020, "price": 22.0, "tags": ["burger"], "is_combo": false},
+    {"code": "M2001", "name": "薯条(中)", "calories": 320, "protein": 4, "fat": 16, "carbs": 39, "sodium": 270, "price": 11.0, "tags": ["side"], "is_combo": false},
+    {"code": "M2002", "name": "玉米杯", "calories": 70, "protein": 3, "fat": 1, "carbs": 14, "sodium": 20, "price": 9.5, "tags": ["side", "low-cal"], "is_combo": false},
+    {"code": "M2003", "name": "无糖可乐", "calories": 0, "protein": 0, "fat": 0, "carbs": 0, "sodium": 15, "price": 9.0, "tags": ["drink", "sugar-free"], "is_combo": false},
+    {"code": "M2004", "name": "鲜煮咖啡", "calories": 5, "protein": 0, "fat": 0, "carbs": 0, "sodium": 5, "price": 12.0, "tags": ["drink"], "is_combo": false},
+    {"code": "M3001", "name": "麦辣鸡腿堡套餐", "calories": 810, "protein": 25, "fat": 40, "carbs": 83, "sodium": 1160, "price": 33.5, "tags": ["combo", "spicy"], "is_combo": true},
+    {"code": "M3002", "name": "板烧鸡腿堡套餐", "calories": 750, "protein": 30, "fat": 33, "carbs": 83, "sodium": 1290, "price": 34.0, "tags": ["combo"], "is_combo": true}
+  ],
+  "constraints": {
+    "max_calories": 600,
+    "min_protein": 25,
+    "max_sodium": 1500,
+    "budget": 40,
+    "avoid_tags": ["spicy"],
+    "max_items": 3
+  },
+  "coupons": [
+    {"id": "C001", "name": "满30减8", "type": "threshold", "threshold": 30, "value": 8, "applicable_codes": ["ANY"], "stackable": true},
+    {"id": "C002", "name": "玉米杯立减3", "type": "fixed", "value": 3, "applicable_codes": ["M2002"], "stackable": true}
+  ],
+  "top_n": 3
+}

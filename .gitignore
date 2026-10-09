@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 本地敏感配置（如有）
+.env
+*.local.json

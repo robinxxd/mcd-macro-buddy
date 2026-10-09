@@ -1,0 +1,68 @@
+{
+  "mode": "nutrition",
+  "solutions": [
+    {
+      "items": [
+        "M1002",
+        "M2002"
+      ],
+      "names": [
+        "板烧鸡腿堡",
+        "玉米杯"
+      ],
+      "calories": 500,
+      "protein": 29,
+      "fat": 18,
+      "carbs": 58,
+      "sodium": 1040,
+      "original_price": 31.5,
+      "final_price": 20.5,
+      "saved": 11.0,
+      "used_coupons": [
+        "C001",
+        "C002"
+      ],
+      "score": 0.656
+    },
+    {
+      "items": [
+        "M1002"
+      ],
+      "names": [
+        "板烧鸡腿堡"
+      ],
+      "calories": 430,
+      "protein": 26,
+      "fat": 17,
+      "carbs": 44,
+      "sodium": 1020,
+      "original_price": 22.0,
+      "final_price": 22.0,
+      "saved": 0.0,
+      "used_coupons": [],
+      "score": 0.6383
+    },
+    {
+      "items": [
+        "M1002",
+        "M2003"
+      ],
+      "names": [
+        "板烧鸡腿堡",
+        "无糖可乐"
+      ],
+      "calories": 430,
+      "protein": 26,
+      "fat": 17,
+      "carbs": 44,
+      "sodium": 1035,
+      "original_price": 31.0,
+      "final_price": 23.0,
+      "saved": 8.0,
+      "used_coupons": [
+        "C001"
+      ],
+      "score": 0.6383
+    }
+  ]
+}
