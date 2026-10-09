@@ -1,48 +1,48 @@
 # 推送到 GitHub 步骤
 
-> 前提：先在 GitHub 网页新建一个 **Public** 仓库，仓库名建议用 `mcd-macro-buddy`（不要勾选自动生成 README，保持空仓库）。
+> 当前状态：本地仓库已就绪（分支 `main`，已提交）。下面只需完成「授权 + 推送」。
 
-## 1. 替换下面的用户名
+## 方案：用 GitHub CLI（gh）推送（推荐，一步建库+推送）
 
-把 `<YOUR_GITHUB_USERNAME>` 换成你自己的 GitHub 用户名。
+环境里已备好**绿色版 gh**（无需安装）：
+`C:/Users/cn-laibjinluo/.local/gh/bin/gh.exe`
 
-## 2. 在 Git Bash / 终端执行
+### 第 1 步（你来做，必须交互）：登录授权
+
+打开你自己的终端（Git Bash / PowerShell 均可），运行：
 
 ```bash
-# 进入项目目录（若已在该目录可省略）
-cd /c/Users/cn-laibjinluo/WorkBuddy/2026-10-09-16-28-34/mcd-macro-buddy
-
-# 关联远程仓库
-git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/mcd-macro-buddy.git
-
-# 统一分支名为 main
-git branch -M main
-
-# 推送到 GitHub（-u 之后下次直接 git push 即可）
-git push -u origin main
+"C:/Users/cn-laibjinluo/.local/gh/bin/gh.exe" auth login
 ```
 
-## 3. 关于身份认证（重要）
+按提示选择 GitHub.com → 用浏览器授权（或选粘贴 Token）。这是 GitHub 的安全机制，任何自动化都无法跳过。
 
-GitHub 已不支持账号密码推送，二选一：
+> 嫌每次打长路径麻烦，可把该 `bin` 目录加入 PATH，或先 `winget install GitHub.cli` 装系统版。
 
-- **方式 A（推荐）**：安装并登录 GitHub CLI
-  ```bash
-  gh auth login          # 按提示用浏览器授权
-  gh repo create mcd-macro-buddy --public --source=. --remote=origin --push
-  ```
-  上面这行可一步完成「建仓库 + 关联 + 推送」。
+### 第 2 步（授权完成后告诉我，由我执行）：建库并推送
 
-- **方式 B**：用 Personal Access Token (PAT) 代替密码
-  1. GitHub → Settings → Developer settings → Personal access tokens → 生成 token（勾选 `repo` 权限）
-  2. 推送时用户名填 GitHub 账号，密码/口令处粘贴 token（不是你的登录密码）
+```bash
+cd /c/Users/cn-laibjinluo/WorkBuddy/2026-10-09-16-28-34/mcd-macro-buddy
+"C:/Users/cn-laibjinluo/.local/gh/bin/gh.exe" repo create mcd-macro-buddy --public --source=. --remote=origin --push
+```
 
-## 4. 推送完成后
+这行会：自动在**你的**账号下新建 `mcd-macro-buddy` 公开仓库 → 关联 `origin` → 推送 `main` 分支。
 
-1. 打开 `https://github.com/<YOUR_GITHUB_USERNAME>/mcd-macro-buddy` 确认仓库为 **Public**。
+## 备选：用 Personal Access Token（PAT）而非 gh
+
+1. GitHub → Settings → Developer settings → Personal access tokens → 生成 token（勾选 `repo` 权限）。
+2. 把 token 给我，我执行：
+   ```bash
+   printf '%s' "<你的PAT>" | "C:/Users/cn-laibjinluo/.local/gh/bin/gh.exe" auth login --with-token
+   ```
+   随后同样用上面的 `gh repo create ... --push` 完成推送。
+
+## 推送完成后
+
+1. 打开 `https://github.com/<你的用户名>/mcd-macro-buddy` 确认仓库为 **Public**。
 2. 到活动仓库 https://github.com/M-China/mcd-developer-innovation-challenge 发 New Issue，复制 `ISSUE_TEMPLATE.md` 内容提交报名（截止 2026-10-25 23:59）。
 
-## 5. 后续更新
+## 后续更新
 
 ```bash
 git add -A
